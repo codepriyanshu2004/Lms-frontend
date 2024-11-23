@@ -10,7 +10,7 @@ const initailState = {
 
 const authSlice = createSlice({
     name:"auth",
-    initialState,
+    initailState,
     reducers:{},
 })
 
