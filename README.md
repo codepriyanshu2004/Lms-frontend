@@ -31,7 +31,7 @@
 
 1. install tailwindCss
 ```
- npm install -D tailwindcss
+ npm install -D tailwindcss postcss autoprefixer
 
 ```
 
@@ -43,7 +43,7 @@
 
 3. Add file extension to tailwind config file in the contents property
 ```
- "./src/**/*.{html,js}"
+ "./src/**/*.{html,js,jsx,ts,tsx}","./index.html"
 
 ```
 ### Adding plugins and dependencies
