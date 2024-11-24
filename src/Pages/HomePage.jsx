@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import homePageImage from '../Assets/Images/homePageMainImage.png';
 import HomeLayout from "../Layouts/HomeLayout";
+
 function Home() {
     return (
         <HomeLayout>
@@ -33,7 +34,7 @@ function Home() {
                 
                
             </div>
-        </HomeLayout>
+         </HomeLayout>
     )
 }
 export default Home;
