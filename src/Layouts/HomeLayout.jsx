@@ -98,7 +98,7 @@ function HomeLayout({ children }) {
                             <div className='w-full flex items-center justify-center'>
                                
                                     <button className='btn-primary px-4 py-1 font-semibold rounded-md w-full bg-blue-500 hover:bg-blue-700  text-white transition-all ease-in-out duration-300'>
-                                        <Link to="/signin">Login</Link>
+                                        <Link to="/login">Login</Link>
                                     </button>
                                     <button className='btn-secondary px-4 py-1 font-semibold rounded-md w-full  text-white bg-purple-700 hover:bg-purple-900  transition-all ease-in-out duration-300'>
                                         <Link to="/signup">Signup</Link>
