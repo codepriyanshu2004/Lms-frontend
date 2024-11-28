@@ -87,6 +87,7 @@ function Signup() {
     // formData.append("avatar",signupData.avatar);
 
     //dispacth create account action
+   
     const response = await dispatch(login(loginData));
     console.log(response);
     
