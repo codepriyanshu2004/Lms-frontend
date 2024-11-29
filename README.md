@@ -46,6 +46,20 @@
  "./src/**/*.{html,js,jsx,ts,tsx}","./index.html"
 
 ```
+
+4. Add the tailwind directives at the top of the index.css file
+```
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+```
+
+5. Add the following details in the plugin property of tainwind config
+
+```
+    [require("daisyui"), require("@tailwindcss/line-clamp")]
+```
+
 ### Adding plugins and dependencies
 
 ```

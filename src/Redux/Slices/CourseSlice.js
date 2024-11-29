@@ -30,6 +30,14 @@ const courseSlice = createSlice({
     initialState,
     reducers:{},
     extraReducers:(builder) =>{
+        builder.addCase(getAllCourses.fulfilled,(state,action) =>{
+             if (action.payload) {
+                // console.log(action.payload);
+                
+                 state.courseData = [...action.payload];
+                
+             } 
+        })
 
     }
 });
