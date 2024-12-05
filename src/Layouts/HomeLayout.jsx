@@ -79,6 +79,14 @@ function HomeLayout({ children }) {
                         )}
 
 
+
+                        {isLoggedIn && role==="ADMIN" && (
+                            <li>
+                                <Link to="/course/create">Create course</Link>
+                            </li>
+                        )}
+
+
                        <li>
                             <Link to="/courses"> All courses </Link>
                         </li>
