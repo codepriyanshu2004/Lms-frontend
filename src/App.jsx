@@ -18,6 +18,7 @@ import Profile from './Pages/User/Profile'
 import EditProfile from './Pages/User/EditProfile'
 import Checkout from './Pages/Payment/Checkout'
 import ChecktoutSuccess from './Pages/Payment/ChecktoutSuccess'
+import Displaylectures from './Pages/Dashboard/Displaylectures'
 
 function App() {
 
@@ -47,6 +48,8 @@ function App() {
       <Route path='/checkout' element ={< Checkout />}></Route>
       <Route path='/checkout/success' element ={< ChecktoutSuccess />}></Route>
       <Route path='/checkout/fail' element ={< ChecktoutSuccess />}></Route>
+      <Route path='/course/displaylectures' element ={< Displaylectures />}></Route>
+
 
    </Route>
 
