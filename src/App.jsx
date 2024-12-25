@@ -46,6 +46,7 @@ function App() {
       <Route path='/user/editprofile' element ={<EditProfile />}></Route>
       <Route path='/checkout' element ={< Checkout />}></Route>
       <Route path='/checkout/success' element ={< ChecktoutSuccess />}></Route>
+      <Route path='/checkout/fail' element ={< ChecktoutSuccess />}></Route>
 
    </Route>
 
