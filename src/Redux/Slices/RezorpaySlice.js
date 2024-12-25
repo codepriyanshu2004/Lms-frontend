@@ -5,7 +5,7 @@ import axiosInstance from "../../Helpers/axiosInstance";
 const initialState ={
     key:"",
     subscription_id:"",
-    isPaymentVerified: {},
+    isPaymentVerified: false,
     allPayments:{},
     finalMonths:{},
     monthlySalesRecord:[]
@@ -38,17 +38,17 @@ export const purchaseCourseBundle = createAsyncThunk("/purchaseCourse",async () 
 })
 
 
-export const verifyUserPayment= createAsyncThunk("/payments/verify",async (data) =>{
+export const verifyUserPayment= createAsyncThunk("/verifyPayment",async (data) =>{
     try {
 
         const response = await axiosInstance.post("/payments/verify",{
             
             razorpay_payment_id: data.razorpay_payment_id,
             razorpay_subscription_id: data.razorpay_subscription_id,
-            razorpay_signature : data. razorpay_signature 
+            razorpay_signature : data.razorpay_signature 
         });
        
-        return response.data;
+        return response?.data;
    
         
     } catch (error) {
@@ -116,6 +116,9 @@ const razorpaySlice = createSlice({
     reducers:{},
     extraReducers: (builder) =>{
         builder
+        .addCase(getRazorpayId.rejected, () => {
+            toast.error("Failed to get razor pay id");
+          })
         .addCase(getRazorpayId.fulfilled, (state, action) => {
             state.key = action?.payload?.key;
         })
@@ -124,11 +127,11 @@ const razorpaySlice = createSlice({
         })
         .addCase(verifyUserPayment.fulfilled, (state, action) => {
             toast.success(action?.payload?.message);
-            state.isPaymentVerified = action?.payload?.sucess;
+            state.isPaymentVerified = action?.payload?.success;
         })
         .addCase(verifyUserPayment.rejected, (state, action) => {
             toast.error(action?.payload?.message);
-            state.isPaymentVerified = action?.payload?.sucess;
+            state.isPaymentVerified = action?.payload?.success;
         })
         .addCase(getPaymentRecord.fulfilled, (state, action) => {
             state.allPayments = action?.payload?.allPayments;
