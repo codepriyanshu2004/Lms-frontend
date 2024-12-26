@@ -36,10 +36,12 @@ function Displaylectures() {
                     Course Name: {state?.title}
                 </div>
 
-                {lectures && lectures.length > 0 && <div className="flex justify-center gap-10 w-full">
+                {(lectures && lectures.length > 0 ) ?
+
+                (<div className="flex justify-center gap-10 w-full">
                     {/* left section for playing videos and displaying course details to admin */}
                    <div className="space-y-5 w-[28rem] p-2 rounded-lg shadow-[0_0_10px_black]">
-                        <video 
+                        <video
                             src={lectures && lectures[currentVideo]?.lecture?.secure_url}
                             className="object-fill rounded-tl-lg rounded-tr-lg w-full"   
                             controls
@@ -69,7 +71,7 @@ function Displaylectures() {
                         <li className="font-semibold text-xl text-yellow-500 flex items-center justify-between">
                             <p>Lectures list</p>
                             {role === "ADMIN" && (
-                                <button onClick={() => navigate("/course/addlecture", {state: {...state}})} className="btn-primary px-2 py-1 rounded-md font-semibold text-sm">
+                                <button onClick={() => navigate("/course/addlecture", {state: {...state}})} className="  btn-secondary  text-white bg-purple-700 hover:bg-purple-900  transition-all ease-in-out duration-300 px-2 py-1 rounded-md font-semibold text-sm">
                                     Add new lecture
                                 </button>
                             )}
@@ -78,14 +80,14 @@ function Displaylectures() {
                             lectures.map((lecture, idx) => {
                                 return (
                                     <li className="space-y-2" key={lecture._id} >
-                                        <p className="cursor-pointer" onClick={() => setCurrentVideo(idx)}>
-                                            <span>
+                                        <p className="cursor-pointer text-white" onClick={() => setCurrentVideo(idx)}>
+                                            <span className='text-white'>
                                                 {" "} Lecture {idx + 1} : {" "}
                                             </span>
                                             {lecture?.title}
                                         </p>
                                         {role === "ADMIN" && (
-                                            <button onClick={() => onLectureDelete(state?._id, lecture?._id)} className="btn-accent px-2 py-1 rounded-md font-semibold text-sm">
+                                            <button onClick={() => onLectureDelete(state?._id, lecture?._id)} className="btn-primary px-2 py-1 rounded-md font-semibold text-sm  bg-blue-500 hover:bg-blue-700  text-white transition-all ease-in-out duration-300">
                                                 Delete lecture
                                             </button>
                                         )}
@@ -94,7 +96,14 @@ function Displaylectures() {
                             })    
                         }
                    </ul>
-                </div>}
+                </div> ):(
+                     role === "ADMIN" && (
+                        <button onClick={() => navigate("/course/addlecture", {state: {...state}})} className="  btn-secondary  text-white bg-purple-700 hover:bg-purple-900  transition-all ease-in-out duration-300 px-2 py-1 rounded-md font-semibold text-sm">
+                            Add new lecture
+                        </button>
+                    )
+                ) 
+                }
             </div>
 
    </HomeLayout>
